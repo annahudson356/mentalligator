@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import LoginComponent from './LoginComponent';
 import Navbar from './Navbar';
-import Login from './Login';
 import reportWebVitals from './reportWebVitals';
 
 const App = () => {
@@ -11,17 +11,23 @@ const App = () => {
   const renderPage = () => {
     switch (currentPage) {
       case 'login':
-        return <Login />;
+        return(
+          <>
+          <Navbar />
+          <LoginComponent />
+          </>
+          
+        );
       case 'home':
       default:
-        return (<Navbar />); 
+        return <h1>Home Page</h1>; // Render home content instead
     }
   };
 
   return (
     <div>
       <Navbar setCurrentPage={setCurrentPage} />
-      {renderPage()}
+      {renderPage()} {/* Render the current page below the navbar */}
     </div>
   );
 };
