@@ -14,11 +14,14 @@ const LoginComponent = () => {
           <input type="password" id="login-password" name="password" required />
         </div>
         <button type="submit">Login</button>
-        <p>Don't have an account? <a href="#register">Register here</a></p>
       </form>
 
       <h2 id="register">Register</h2>
       <form id="registration-form">
+      <div className="form-group">
+          <label htmlFor="register-name">Name:</label>
+          <input type="text" id="register-name" name="name" required />
+        </div>
         <div className="form-group">
           <label htmlFor="register-email">Email:</label>
           <input type="email" id="register-email" name="email" required />
@@ -32,7 +35,6 @@ const LoginComponent = () => {
           <input type="password" id="confirm-password" name="confirm-password" required />
         </div>
         <button type="submit">Register</button>
-        <p>Already have an account? <a href="#login">Login here</a></p>
       </form>
     </div>
   );

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import LoginComponent from './LoginComponent';
 import Navbar from './Navbar';
+import About from './About'
 import reportWebVitals from './reportWebVitals';
 
 const App = () => {
@@ -13,16 +14,18 @@ const App = () => {
       case 'login':
         return <LoginComponent />;
       case 'about':
+        return <About />;
       case 'contact':
-      case 'home':
-        return <h1>Mentalligator</h1>; // Render home content
+      default:
+        return <h1>Mentalligator</h1>; 
+
     }
   };
 
   return (
     <div>
       <Navbar setCurrentPage={setCurrentPage} />
-      {renderPage()} {/* Render the current page below the navbar */}
+      {renderPage()} 
     </div>
   );
 };
