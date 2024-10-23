@@ -1,12 +1,16 @@
-import logo from './logo.svg';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import './Login.css';
+import Navbar from './Navbar';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="Login">
-      
-    </div>
-  );
-}
+import reportWebVitals from './reportWebVitals';
 
-export default App;
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <Navbar />
+  </React.StrictMode>
+);
+
+reportWebVitals();
