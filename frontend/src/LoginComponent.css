@@ -3,7 +3,6 @@
   }
   
   body {
-    background: linear-gradient(to bottom right, #e6f7ff, #cceeff);
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -23,7 +22,7 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     padding: 20px;
     margin: 20px;
-    width: 300px; /* Fixed width for centering */
+    width: 300px; 
     transition: transform 0.3s, box-shadow 0.3s;
   }
   
@@ -43,7 +42,7 @@
   }
   
   input {
-    width: calc(100% - 22px); /* Adjust width to accommodate padding */
+    width: calc(100% - 22px); 
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
