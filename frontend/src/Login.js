@@ -1,16 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import Navbar from './Navbar.js';
+import LoginComponent from './LoginComponent.js';
 import './Login.css';
-import Navbar from './Navbar';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+const Login = () => {
+  return (
+    <div>
+      <Navbar />
+      <LoginComponent />
+    </div>
+  );
+};
 
-import reportWebVitals from './reportWebVitals';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <Navbar />
-  </React.StrictMode>
-);
-
-reportWebVitals();
+export default Login;
