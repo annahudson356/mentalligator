@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import LoginComponent from './LoginComponent';
 import Navbar from './Navbar';
-import About from './About'
+import About from './About';
+import Contact from './Contact';
 import reportWebVitals from './reportWebVitals';
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
       case 'about':
         return <About />;
       case 'contact':
+        return <Contact />
       default:
         return <h1>Mentalligator</h1>; 
 
