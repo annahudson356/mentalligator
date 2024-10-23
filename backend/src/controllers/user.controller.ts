@@ -21,6 +21,11 @@ export class UserController {
         return this.userService.findOneByEmail(email);
     }
 
+    @Get(":name")
+    findOneByName(@Param('name') name: string): Promise<User> {
+        return this.userService.findOneByName(name);
+    }
+
     @Post()
     create(@Body() user: User): Promise<User> {
         return this.userService.create(user);
@@ -30,4 +35,5 @@ export class UserController {
     remove (@Param('id') id: number): Promise<void> {
         return this.userService.remove(id);
     }
+
 }
