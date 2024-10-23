@@ -1,5 +1,5 @@
 * {
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    box-sizing: border-box;
   }
   
   body {
@@ -22,7 +22,7 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     padding: 20px;
     margin: 20px;
-    width: 300px; 
+    width: 300px;
     transition: transform 0.3s, box-shadow 0.3s;
   }
   
@@ -42,7 +42,7 @@
   }
   
   input {
-    width: calc(100% - 22px); 
+    width: calc(100% - 22px);
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
