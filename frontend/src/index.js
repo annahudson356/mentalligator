@@ -11,16 +11,11 @@ const App = () => {
   const renderPage = () => {
     switch (currentPage) {
       case 'login':
-        return(
-          <>
-          <Navbar />
-          <LoginComponent />
-          </>
-          
-        );
+        return <LoginComponent />;
+      case 'about':
+      case 'contact':
       case 'home':
-      default:
-        return <h1>Home Page</h1>; // Render home content instead
+        return <h1>Mentalligator</h1>; // Render home content
     }
   };
 
