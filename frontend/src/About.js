@@ -2,7 +2,7 @@ import React from 'react';
 import './About.css';
 const About = () => {
   return (
-    <div>
+    <div className="about-container">
         <h1>About Mentalligator</h1>
         <p>Mentalligator is an application designed for UF students to focus on their mental wellbeing and overall wellness.</p>
         <p>Mentalligator allows users to log their mental and physical activities and see insights on how to improve in the future.</p>
