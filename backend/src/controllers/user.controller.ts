@@ -27,8 +27,9 @@ export class UserController {
         return this.userService.findOneByName(name);
     }
 
-    @Post()
+    @Post('/create')
     async create(@Body() user: User): Promise<User> {
+        console.log("create " + user.name);
         try {
             return await this.userService.create(user);
         }
