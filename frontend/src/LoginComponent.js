@@ -11,6 +11,17 @@ const LoginComponent = () => {
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  // password visibilty toggle states
+  const [showLoginPassword, setShowLoginPassword] = useState(false);
+  const [showRegisterPassword, setShowRegisterPassword] = useState(false);
+
+  const toggleLoginPasswordVisibility = () => {
+    setShowLoginPassword((prev) => !prev);
+  };
+
+  const toggleRegisterPasswordVisibility = () => {
+    setShowRegisterPassword((prev) => !prev);
+  };
 
   const handleRegister = async (event) => {
     event.preventDefault();
@@ -66,7 +77,6 @@ const LoginComponent = () => {
       .catch((error) => {
         console.error("Login error:", error);
       });
-  };
 
   return (
     <div>
@@ -85,21 +95,23 @@ const LoginComponent = () => {
         </div>
         <div className="form-group">
           <label htmlFor="login-password">Password:</label>
-          <input
-            type="password"
-            id="login-password"
-            name="password"
-            value={loginPassword}
-            onChange={(event) => setLoginPassword(event.target.value)}
-            required
-          />
+          <div className="password-container">
+            <input 
+              type={showLoginPassword ? "text" : "password"} 
+              id="login-password" 
+              name="password" 
+              value={loginPassword}
+              onChange={(event) => setLoginPassword(event.target.value)}
+              required 
+            />
+            <button type="button" onClick={toggleLoginPasswordVisibility}>
+              {showLoginPassword ? "Hide" : "Show"}
+            </button>
+          </div>
         </div>
-        <button type="submit" onClick={handleLogin}>
-          Login
-        </button>
+        <button type="submit" className="login-btn">Login</button>
         {loggedIn && <p>Logged in!</p>}
       </form>
-
       <h2 id="register">Register</h2>
       <form id="registration-form">
         <div className="form-group">
@@ -126,29 +138,34 @@ const LoginComponent = () => {
         </div>
         <div className="form-group">
           <label htmlFor="register-password">Password:</label>
-          <input
-            type="password"
-            id="register-password"
-            name="password"
-            value={registerPassword}
-            onChange={(event) => setRegisterPassword(event.target.value)}
-            required
-          />
+          <div className="password-container">
+            <input 
+              type={showRegisterPassword ? "text" : "password"} 
+              id="register-password" 
+              name="password" 
+              value={registerPassword}
+              onChange={(event) => setRegisterPassword(event.target.value)}
+              required 
+            />
+          </div>
         </div>
         <div className="form-group">
           <label htmlFor="confirm-password">Confirm Password:</label>
-          <input
-            type="password"
-            id="confirm-password"
-            name="confirm-password"
-            value={confirmPassword}
-            onChange={(event) => setConfirmPassword(event.target.value)}
-            required
-          />
+          <div className="password-container">
+            <input 
+              type={showRegisterPassword ? "text" : "password"} 
+              id="confirm-password" 
+              name="confirm-password"
+              value={confirmPassword}
+              onChange={(event) => setConfirmPassword(event.target.value)}
+              required 
+            />
+            <button type="button" onClick={toggleRegisterPasswordVisibility}>
+              {showRegisterPassword ? "Hide" : "Show"}
+            </button>
+          </div>
         </div>
-        <button type="submit" onClick={handleRegister}>
-          Register
-        </button>
+        <button type="submit" className="register-btn">Register</button>
         {registered && <p>Registered!</p>}
       </form>
     </div>

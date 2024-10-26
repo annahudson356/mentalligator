@@ -35,6 +35,17 @@
     justify-content: center;
     align-items: center;
   }
+
+  .form-group button {
+    background-color: #66afe9;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+  }
   
   label {
     display: block;
@@ -70,3 +81,38 @@
     background-color: #4a8bc2;
   }
   
+  .password-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .password-container input {
+    flex: 1;
+  }
+  
+  .password-container button {
+    background-color: #66afe9;
+    color: white;
+    padding: 0px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 40px;
+    height: 36.8px;
+  }
+
+  .login-btn, .register-btn {
+    background-color: #66afe9;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+  }
+
+  .login-btn:hover, .register-btn:hover {
+    background-color: #4a8bc2;
+  }
