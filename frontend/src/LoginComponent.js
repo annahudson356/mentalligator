@@ -78,98 +78,104 @@ const LoginComponent = () => {
         console.error("Login error:", error);
       });
 
-  return (
-    <div>
-      <h2>Login</h2>
-      <form id="login-form">
-        <div className="form-group">
-          <label htmlFor="login-email">Email:</label>
-          <input
-            type="email"
-            id="login-email"
-            name="email"
-            value={loginEmail}
-            onChange={(event) => setLoginEmail(event.target.value)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="login-password">Password:</label>
-          <div className="password-container">
-            <input 
-              type={showLoginPassword ? "text" : "password"} 
-              id="login-password" 
-              name="password" 
-              value={loginPassword}
-              onChange={(event) => setLoginPassword(event.target.value)}
-              required 
-            />
-            <button type="button" onClick={toggleLoginPasswordVisibility}>
-              {showLoginPassword ? "Hide" : "Show"}
-            </button>
-          </div>
-        </div>
-        <button type="submit" className="login-btn">Login</button>
-        {loggedIn && <p>Logged in!</p>}
-      </form>
-      <h2 id="register">Register</h2>
-      <form id="registration-form">
-        <div className="form-group">
-          <label htmlFor="register-name">Name:</label>
-          <input
-            type="text"
-            id="register-name"
-            name="name"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="register-email">Email:</label>
-          <input
-            type="email"
-            id="register-email"
-            name="email"
-            value={registerEmail}
-            onChange={(event) => setRegisterEmail(event.target.value)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="register-password">Password:</label>
-          <div className="password-container">
-            <input 
-              type={showRegisterPassword ? "text" : "password"} 
-              id="register-password" 
-              name="password" 
-              value={registerPassword}
-              onChange={(event) => setRegisterPassword(event.target.value)}
-              required 
+    }
+
+    return (
+      <div>
+        <h2>Login</h2>
+        <form id="login-form">
+          <div className="form-group">
+            <label htmlFor="login-email">Email:</label>
+            <input
+              type="email"
+              id="login-email"
+              name="email"
+              value={loginEmail}
+              onChange={(event) => setLoginEmail(event.target.value)}
+              required
             />
           </div>
-        </div>
-        <div className="form-group">
-          <label htmlFor="confirm-password">Confirm Password:</label>
-          <div className="password-container">
-            <input 
-              type={showRegisterPassword ? "text" : "password"} 
-              id="confirm-password" 
-              name="confirm-password"
-              value={confirmPassword}
-              onChange={(event) => setConfirmPassword(event.target.value)}
-              required 
-            />
-            <button type="button" onClick={toggleRegisterPasswordVisibility}>
-              {showRegisterPassword ? "Hide" : "Show"}
-            </button>
+          <div className="form-group">
+            <label htmlFor="login-password">Password:</label>
+            <div className="password-container">
+              <input
+                type={showLoginPassword ? "text" : "password"}
+                id="login-password"
+                name="password"
+                value={loginPassword}
+                onChange={(event) => setLoginPassword(event.target.value)}
+                required
+              />
+              <button type="button" onClick={toggleLoginPasswordVisibility}>
+                {showLoginPassword ? "Hide" : "Show"}
+              </button>
+            </div>
           </div>
-        </div>
-        <button type="submit" className="register-btn">Register</button>
-        {registered && <p>Registered!</p>}
-      </form>
-    </div>
-  );
-};
+          <button type="submit" onClick={handleLogin} className="login-btn">
+            Login
+          </button>
+          {loggedIn && <p>Logged in!</p>}
+        </form>
+        <h2 id="register">Register</h2>
+        <form id="registration-form">
+          <div className="form-group">
+            <label htmlFor="register-name">Name:</label>
+            <input
+              type="text"
+              id="register-name"
+              name="name"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="register-email">Email:</label>
+            <input
+              type="email"
+              id="register-email"
+              name="email"
+              value={registerEmail}
+              onChange={(event) => setRegisterEmail(event.target.value)}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="register-password">Password:</label>
+            <div className="password-container">
+              <input
+                type={showRegisterPassword ? "text" : "password"}
+                id="register-password"
+                name="password"
+                value={registerPassword}
+                onChange={(event) => setRegisterPassword(event.target.value)}
+                required
+              />
+            </div>
+          </div>
+          <div className="form-group">
+            <label htmlFor="confirm-password">Confirm Password:</label>
+            <div className="password-container">
+              <input
+                type={showRegisterPassword ? "text" : "password"}
+                id="confirm-password"
+                name="confirm-password"
+                value={confirmPassword}
+                onChange={(event) => setConfirmPassword(event.target.value)}
+                required
+              />
+              <button type="button" onClick={toggleRegisterPasswordVisibility}>
+                {showRegisterPassword ? "Hide" : "Show"}
+              </button>
+            </div>
+          </div>
+          <button type="submit" onClick={handleRegister} className="register-btn">
+            Register
+          </button>
+          {registered && <p>Registered!</p>}
+        </form>
+      </div>
+    );
+  };
 
 export default LoginComponent;
