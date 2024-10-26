@@ -1,6 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './LoginComponent.css';
+
 const LoginComponent = () => {
+  // password visibilty toggle states
+  const [showLoginPassword, setShowLoginPassword] = useState(false);
+  const [showRegisterPassword, setShowRegisterPassword] = useState(false);
+
+  const toggleLoginPasswordVisibility = () => {
+    setShowLoginPassword((prev) => !prev);
+  };
+
+  const toggleRegisterPasswordVisibility = () => {
+    setShowRegisterPassword((prev) => !prev);
+  };
+
   return (
     <div>
       <h2>Login</h2>
@@ -11,14 +24,24 @@ const LoginComponent = () => {
         </div>
         <div className="form-group">
           <label htmlFor="login-password">Password:</label>
-          <input type="password" id="login-password" name="password" required />
+          <div className="password-container">
+            <input 
+              type={showLoginPassword ? "text" : "password"} 
+              id="login-password" 
+              name="password" 
+              required 
+            />
+            <button type="button" onClick={toggleLoginPasswordVisibility}>
+              {showLoginPassword ? "Hide" : "Show"}
+            </button>
+          </div>
         </div>
-        <button type="submit">Login</button>
+        <button type="submit" className="login-btn">Login</button>
       </form>
 
       <h2 id="register">Register</h2>
       <form id="registration-form">
-      <div className="form-group">
+        <div className="form-group">
           <label htmlFor="register-name">Name:</label>
           <input type="text" id="register-name" name="name" required />
         </div>
@@ -28,13 +51,30 @@ const LoginComponent = () => {
         </div>
         <div className="form-group">
           <label htmlFor="register-password">Password:</label>
-          <input type="password" id="register-password" name="password" required />
+          <div className="password-container">
+            <input 
+              type={showRegisterPassword ? "text" : "password"} 
+              id="register-password" 
+              name="password" 
+              required 
+            />
+          </div>
         </div>
         <div className="form-group">
           <label htmlFor="confirm-password">Confirm Password:</label>
-          <input type="password" id="confirm-password" name="confirm-password" required />
+          <div className="password-container">
+            <input 
+              type={showRegisterPassword ? "text" : "password"} 
+              id="confirm-password" 
+              name="confirm-password" 
+              required 
+            />
+            <button type="button" onClick={toggleRegisterPasswordVisibility}>
+              {showRegisterPassword ? "Hide" : "Show"}
+            </button>
+          </div>
         </div>
-        <button type="submit">Register</button>
+        <button type="submit" className="register-btn">Register</button>
       </form>
     </div>
   );
