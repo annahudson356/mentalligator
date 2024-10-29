@@ -18,13 +18,10 @@ const App = () => {
         return <About />;
       case 'contact':
         return <Contact />
+      case 'home':
+        return <h1>Mentalligator</h1>; 
       default:
-        return (
-          <>
-          <h1>Mentalligator</h1>
-          </>
-        ); 
-
+        // return <h1>Mentalligator</h1>; 
     }
   };
 
