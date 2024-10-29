@@ -19,7 +19,11 @@ const App = () => {
       case 'contact':
         return <Contact />
       default:
-        return <h1>Mentalligator</h1>; 
+        return (
+          <>
+          <h1>Mentalligator</h1>
+          </>
+        ); 
 
     }
   };
