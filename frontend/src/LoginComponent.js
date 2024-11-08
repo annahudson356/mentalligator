@@ -4,6 +4,7 @@ import "./LoginComponent.css";
 
 const LoginComponent = () => {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [failedLogin, setFailedLogin] = useState(false);
   const [registered, setRegistered] = useState(false);
   const [name, setName] = useState("");
   const [loginEmail, setLoginEmail] = useState("");
@@ -71,10 +72,19 @@ const LoginComponent = () => {
         params: { email, password },
       })
       .then((response) => {
+        if (response.data) {
         console.log("Login response:", response);
+        setFailedLogin(false);
         setLoggedIn(true);
+      }
+      else {
+        console.error("Login failed:", response);
+        setFailedLogin(true);
+        throw new Error("Login failed");
+      }
       })
       .catch((error) => {
+        setFailedLogin(true);
         console.error("Login error:", error);
       });
 
@@ -115,6 +125,7 @@ const LoginComponent = () => {
             Login
           </button>
           {loggedIn && <p>Logged in!</p>}
+          {failedLogin && <p>Failed to login!</p>}
         </form>
         <h2 id="register">Register</h2>
         <form id="registration-form">

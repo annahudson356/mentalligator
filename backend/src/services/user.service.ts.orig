@@ -7,28 +7,28 @@ import { find } from 'rxjs';
 
 @Injectable()
 export class UserService {
-  constructor(
-    @InjectRepository(User)
-    private userRepository: Repository<User>,
-  ) {}
+    constructor(
+        @InjectRepository(User)
+        private userRepository: Repository<User>,
+    ) {}
 
-  findAll(): Promise<User[]> {
-    return this.userRepository.find();
-  }
-
-  findOne(id: number): Promise<User> {
-    return this.userRepository.findOneBy({ id });
+    findAll(): Promise<User[]> {
+        return this.userRepository.find();
     }
 
-  findOneByName(name: string): Promise<User> {
-    return this.userRepository.findOneBy({ name });
+    findOne(id: number): Promise<User> {
+        return this.userRepository.findOneBy({ id });
     }
 
-  findOneByEmail(email: string): Promise<User> {
+    findOneByName(name: string): Promise<User> {
+        return this.userRepository.findOneBy({ name });
+    }
+
+    findOneByEmail(email: string): Promise<User> {
         return this.userRepository.findOne({ where: { email }});
     }
 
-  async create(user: User): Promise<User> {
+    async create(user: User): Promise<User> {
         if (await this.findOneByEmail(user.email)) {
             throw new Error("User already exists");
         }
@@ -41,25 +41,25 @@ export class UserService {
             throw new Error("Email must be a valid ufl email");
         }
 
-    const hashedPass = await bcrypt.hash(user.password, 10);
-    const newUser = user;
-    newUser.password = hashedPass;
-    return this.userRepository.save(newUser);
+        const hashedPass = await bcrypt.hash(user.password, 10);
+        const newUser = user;
+        newUser.password = hashedPass;
+        return this.userRepository.save(newUser);
     }
 
-  async remove(id: number): Promise<void> {
-    await this.userRepository.delete(id);
+    async remove(id: number): Promise<void> {
+        await this.userRepository.delete(id);
     }
 
     async validate(email: string, password: string): Promise<any> {
         const user = await this.findOneByEmail(email);
-    if (user && (await bcrypt.compare(password, user.password))) {
+        if (user && await bcrypt.compare(password, user.password)) {
             console.log("User found");
-      const { password, ...result } = user;
-      return result;
+            const { password, ...result } = user;
+            return result;
         }
         console.log("Invalid email or password");
-    return null;
+        return null;
     }
 
     async passwordValidate(password: string): Promise<boolean> {

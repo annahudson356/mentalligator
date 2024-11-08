@@ -4,18 +4,18 @@ import { Log } from './log.entity';
 
 @Entity()
 export class User {
-    @PrimaryGeneratedColumn()
-    id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
+    
+  @Column()
+  name: string;
     
     @Column()
-    name: string;
+  email: string;
     
     @Column()
-    email: string;
-    
-    @Column()
-    password: string;
+  password: string;
 
-    @OneToMany(() => Log, (log) => log.user)
-    logs: Log[];
+  @OneToMany(() => Log, (log) => log.user)
+  logs: Log[];
 }

@@ -1,0 +1,9 @@
+@@ -28,1 +28,1 @@
+-        return this.userRepository.findOneBy({ email });
++    return this.userRepository.findOneBy({ email });
+@@ -42,1 +42,1 @@
+-    async validate(name: string, password: string): Promise<any> {
++  async validate(name: string, password: string): Promise<any> {
+@@ -43,1 +43,1 @@
+-        const user = await this.userRepository.findOne({where: {name}});
++    const user = await this.userRepository.findOne({ where: { name } });
