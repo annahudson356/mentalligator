@@ -28,10 +28,11 @@ export class UserController {
     }
 
     @Post('/create')
-    async create(@Body() user: User): Promise<User> {
+    async create(@Body() user: User): Promise<{message: string}> {
         console.log("create " + user.name);
         try {
-            return await this.userService.create(user);
+            const newUser = await this.userService.create(user);
+            return { message: 'Registered!' }; 
         }
         catch (e) {
             console.error(e);
@@ -43,9 +44,13 @@ export class UserController {
     }
 
     @Get('sign-in/:email/:password')
-    signIn(@Param('email') email: string, @Param('password') password: string): Promise<any> {
+    async signIn(@Param('email') email: string, @Param('password') password: string): Promise<{message: string}> {
         console.log("sign-in" + email + password);
-        return this.userService.validate(email, password);
+        const validUser = await this.userService.validate(email, password);
+        if(!validUser) {
+            throw new HttpException('Invalid user or password', HttpStatus.UNAUTHORIZED);
+        }
+        return {message: 'Logged in!'};
     }
 
     @Delete(':id')

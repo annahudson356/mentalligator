@@ -4,7 +4,6 @@ import "./LoginComponent.css";
 
 const LoginComponent = () => {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [registered, setRegistered] = useState(false);
   const [name, setName] = useState("");
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
@@ -14,6 +13,8 @@ const LoginComponent = () => {
   // password visibilty toggle states
   const [showLoginPassword, setShowLoginPassword] = useState(false);
   const [showRegisterPassword, setShowRegisterPassword] = useState(false);
+  const [loginMessage, setLoginMessage] = useState("");
+  const [registerMessage, setRegisterMessage] = useState("");
 
   const toggleLoginPasswordVisibility = () => {
     setShowLoginPassword((prev) => !prev);
@@ -35,6 +36,7 @@ const LoginComponent = () => {
 
     if (password !== confirmPassword) {
       console.error("Passwords do not match");
+      setRegisterMessage("Error creating user: Passwords do not match");
       return;
     }
 
@@ -48,9 +50,14 @@ const LoginComponent = () => {
         password: password,
       });
       console.log(res.data); // Handle the response data
-      setRegistered(true);
+      setRegisterMessage(res.data.message);
     } catch (error) {
       console.error(error); // Handle the error
+      if (error.response && error.response.data.error) {
+        setRegisterMessage(error.response.data.error);
+      } else {
+        setRegisterMessage('An error occurred'); 
+      }
     }
   };
 
@@ -64,21 +71,24 @@ const LoginComponent = () => {
     const email = loginEmail;
     const password = loginPassword;
 
-    console.log("Logging in with email:", email, "and password:", password);
     // Sample Log In Request http://localhost:3000/users/sign-in/johndoe@ufl.edu/password
-    const res = await axios
-      .get(`http://localhost:3000/users/sign-in/${email}/${password}`, {
-        params: { email, password },
-      })
-      .then((response) => {
-        console.log("Login response:", response);
-        setLoggedIn(true);
-      })
-      .catch((error) => {
-        console.error("Login error:", error);
-      });
+    try {
+      console.log("Logging in with email:", email, "and password:", password);
+      const res = await axios.get(`http://localhost:3000/users/sign-in/${email}/${password}`);
+      
+      console.log("Login response:", res);
+      setLoggedIn(true);
+      setLoginMessage(res.data.message); // Success message from server
 
+    } catch (error) {
+      console.error("Login error:", error);
+      if (error.response && error.response.data.error) {
+        setLoginMessage(error.response.data.error); // Error message from server
+      } else {
+        setLoginMessage('Invalid email or password');
+      }
     }
+  };
 
     return (
       <div>
@@ -114,7 +124,7 @@ const LoginComponent = () => {
           <button type="submit" onClick={handleLogin} className="login-btn">
             Login
           </button>
-          {loggedIn && <p>Logged in!</p>}
+          {loginMessage && <p>{loginMessage}</p>}
         </form>
         <h2 id="register">Register</h2>
         <form id="registration-form">
@@ -172,7 +182,7 @@ const LoginComponent = () => {
           <button type="submit" onClick={handleRegister} className="register-btn">
             Register
           </button>
-          {registered && <p>Registered!</p>}
+          {registerMessage && <p>{registerMessage}</p>}
         </form>
       </div>
     );
