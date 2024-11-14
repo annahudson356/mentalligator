@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginComponent from './LoginComponent';
 import Navbar from './Navbar';
 import About from './About';
@@ -8,28 +9,16 @@ import Contact from './Contact';
 import reportWebVitals from './reportWebVitals';
 
 const App = () => {
-  const [currentPage, setCurrentPage] = useState('home'); // Default page
-
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'login':
-        return <LoginComponent />;
-      case 'about':
-        return <About />;
-      case 'contact':
-        return <Contact />
-      case 'home':
-        return <h1>Mentalligator</h1>; 
-      default:
-        // return <h1>Mentalligator</h1>; 
-    }
-  };
-
   return (
-    <div>
-      <Navbar setCurrentPage={setCurrentPage} />
-      {renderPage()} 
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<h1>Mentalligator</h1>} />
+        <Route path="/login" element={<LoginComponent />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </Router>
   );
 };
 
