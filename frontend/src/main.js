@@ -1,20 +1,21 @@
+// This is where the main ui will go
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginComponent from './LoginComponent';
 import Navbar from './Navbar';
-import Home from './Home';
 import About from './About';
 import Contact from './Contact';
 import reportWebVitals from './reportWebVitals';
 
-const App = () => {
+const Main = () => {
   return (
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<h1>Your Wellness. Simplified</h1>} />
         <Route path="/login" element={<LoginComponent />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
@@ -26,7 +27,7 @@ const App = () => {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Main />
   </React.StrictMode>
 );
 
