@@ -140,4 +140,12 @@
     margin-bottom: 1.5rem;
     opacity: 0.9;
   }
-  
+  .join-section{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #A1CDF1;
+    padding: 2rem 0;
+  }

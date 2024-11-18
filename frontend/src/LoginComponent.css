@@ -1,118 +1,116 @@
-* {
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding-bottom: 30px;
-  }
-  
-  h2 {
-    text-align: center;
-    color: #4a4a4a;
-  }
-  
-  #login-form, #registration-form {
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    margin: auto;
-    width: 300px;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  
-  #login-form:hover, #registration-form:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-    justify-content: center;
-    align-items: center;
-  }
 
-  .form-group button {
-    background-color: #66afe9;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    transition: background-color 0.3s;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-    color: #333;
-  }
-  
-  input {
-    width: calc(100% - 22px);
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: border-color 0.3s;
-  }
-  
-  input:focus {
-    border-color: #66afe9;
-    outline: none;
-  }
-  
-  button {
-    background-color: #66afe9;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    transition: background-color 0.3s;
-  }
-  
-  button:hover {
-    background-color: #4a8bc2;
-  }
-  
-  .password-container {
-    display: flex;
-    align-items: center;
-  }
-  
-  .password-container input {
-    flex: 1;
-  }
-  
-  .password-container button {
-    background-color: #66afe9;
-    color: white;
-    padding: 0px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    width: 40px;
-    height: 36.8px;
-  }
+.container{
+  background: linear-gradient(135deg, rgba(70, 130, 180, 0.8), rgba(145, 88, 232, 0.8));
 
-  .login-btn, .register-btn {
-    background-color: #66afe9;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    transition: background-color 0.3s;
-  }
+}
 
-  .login-btn:hover, .register-btn:hover {
-    background-color: #4a8bc2;
-  }
+.login-titles{
+  font-size: 2.5rem;
+  color: #a2c2e2;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+#login-form, #registration-form {
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 400px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+#login-form .form-group,
+#registration-form .form-group {
+  margin-bottom: 1.2rem;
+  display: block;
+}
+
+#login-form label,
+#registration-form label {
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+#login-form input,
+#registration-form input {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.password-container {
+  position: relative;
+  display: block;
+}
+
+#login-form button,
+#registration-form button {
+  width: 100%;
+  padding: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+}
+
+#login-form button:hover,
+#registration-form button:hover {
+  background-color: #0056b3;
+}
+
+#login-form button[type="button"],
+#registration-form button[type="button"] {
+  position: relative;
+  margin: auto;
+  top: 50%;
+  background: none;
+  border: none;
+  color: #fff;
+  background-color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+}
+#login-form p,
+#registration-form p {
+  text-align: center;
+  color: #ff6347;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+#register {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+#register a {
+  color: #ff6347;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+#register a:hover {
+  text-decoration: underline;
+}
+

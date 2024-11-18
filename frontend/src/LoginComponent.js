@@ -91,8 +91,8 @@ const LoginComponent = () => {
   };
 
     return (
-      <div>
-        <h2>Login</h2>
+      <div className="container">
+        <h2 className = "login-titles">Login</h2>
         <form id="login-form">
           <div className="form-group">
             <label htmlFor="login-email">Email:</label>
@@ -116,9 +116,7 @@ const LoginComponent = () => {
                 onChange={(event) => setLoginPassword(event.target.value)}
                 required
               />
-              <button type="button" onClick={toggleLoginPasswordVisibility}>
-                {showLoginPassword ? "Hide" : "Show"}
-              </button>
+              <span id="toggle-password" class="eye-icon" onClick={toggleLoginPasswordVisibility}>&#128065;</span>
             </div>
           </div>
           <button type="submit" onClick={handleLogin} className="login-btn">
@@ -126,7 +124,7 @@ const LoginComponent = () => {
           </button>
           {loginMessage && <p>{loginMessage}</p>}
         </form>
-        <h2 id="register">Register</h2>
+        <h2 className="login-titles">Register</h2>
         <form id="registration-form">
           <div className="form-group">
             <label htmlFor="register-name">Name:</label>
@@ -174,9 +172,7 @@ const LoginComponent = () => {
                 onChange={(event) => setConfirmPassword(event.target.value)}
                 required
               />
-              <button type="button" onClick={toggleRegisterPasswordVisibility}>
-                {showRegisterPassword ? "Hide" : "Show"}
-              </button>
+              <span id="toggle-password" class="eye-icon" onClick={toggleRegisterPasswordVisibility}>&#128065;</span>
             </div>
           </div>
           <button type="submit" onClick={handleRegister} className="register-btn">

@@ -1,39 +1,95 @@
-.contact-container {
-    padding: 20px;
-    max-width: 600px;
-    margin: 0 auto; 
-}
 
-.contact-form {
+  .contact-container {
+    background: linear-gradient(135deg, rgba(70, 130, 180, 0.8), rgba(145, 88, 232, 0.8));
     display: flex;
     flex-direction: column;
-}
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    height: 100vh;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .contact-container h2 {
+    font-size: 2.5rem;
+    color: #a2c2e2;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  }
+  
 
-.form-group {
-    margin-bottom: 15px;
-}
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+    backdrop-filter: blur(5px);
+  }
+  
+  .contact-form:hover {
+    transform: scale(1.02);
+  }
+  
 
-label {
-    margin-bottom: 5px;
-}
-
-input,
-textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%; /* Ensures input fields take full width */
-}
-
-button {
-    background-color: #333;
+  .form-group {
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 1.1rem;
+    color: black;
+    margin-bottom: 8px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
     color: white;
-    padding: 10px;
+    font-size: 1rem;
+    margin-top: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-color: rgba(138, 43, 226, 0.8);
+    outline: none;
+  }
+  
+  button {
+    padding: 12px 20px;
+    background-color: rgba(138, 43, 226, 0.8);
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.2rem;
     cursor: pointer;
-}
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: rgba(70, 130, 180, 0.8);
+    transform: translateY(-3px);
+  }
+  
 
-button:hover {
-    background-color: #555; /* Darker shade on hover */
-}
+  button:active {
+    transform: translateY(2px);
+  }
+  
