@@ -7,6 +7,7 @@ import Navbar from './Navbar';
 import Home from './Home';
 import About from './About';
 import Contact from './Contact';
+import Main from './Main';
 import reportWebVitals from './reportWebVitals';
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/login" element={<LoginComponent />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/main" element={<Main />} />
       </Routes>
     </Router>
   );
