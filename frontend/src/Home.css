@@ -30,11 +30,29 @@
   }
   
   .mission-title {
+    font-family: Arial, sans-serif;
     font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    font-weight: 700;
+    background: linear-gradient(45deg, #8ec5fc, #e0c3fc);
+    -webkit-background-clip: text;
+    color: transparent;
+    position: relative;
+    display: inline-block;
+    transition: transform 10s ease, filter 10s ease;
+    animation: emphasis 10s ease-in-out infinite;
   }
+
+ 
+  @keyframes emphasis {
+  0%, 100% {
+    filter: brightness(1);
+    transform: scale(1);
+  }
+  50% {
+    filter: brightness(1.5) contrast(1.2);
+    transform: scale(1.05);
+  }
+}
   
   .mission-description {
     font-size: 1.2rem;
