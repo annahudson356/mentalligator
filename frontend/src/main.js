@@ -1,10 +1,17 @@
-// This is where the main UI will go
 import React from 'react';
-import './Main.css';
+import './styles/Main.css';
+import MoodTracking from './components/MoodTracking';
+import ActivityLogging from './components/ActivityLogging';
+import StatisticalAnalysis from './components/StatisticalAnalysis';
 
 const Main = () => {
   return (
-    <h1>Your Wellness, Simplified</h1>
+    <div>
+      <h1>Your Wellness, Simplified</h1>
+      <MoodTracking />
+      <ActivityLogging />
+      <StatisticalAnalysis />
+    </div>
   );
 };
 

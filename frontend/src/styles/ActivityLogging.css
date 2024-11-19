@@ -1,0 +1,61 @@
+/* ActivityLogging.css */
+.activity-logging {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .activity-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  
+  .activity-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: rgba(70, 130, 180, 0.8);
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .activity-button.active {
+    background-color: rgba(138, 43, 226, 0.8);
+    transform: translateY(-3px);
+  }
+  
+  .activity-button:hover {
+    background-color: rgba(70, 130, 180, 0.6);
+  }
+  
+  .add-activity {
+    margin-top: 20px;
+  }
+  
+  .add-activity input {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+  }
+  
+  .add-activity button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(138, 43, 226, 0.8);
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .add-activity button:hover {
+    background-color: rgba(70, 130, 180, 0.8);
+    transform: translateY(-3px);
+  }
+  

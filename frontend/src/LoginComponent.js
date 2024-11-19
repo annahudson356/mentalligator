@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./LoginComponent.css";
+import "./styles/LoginComponent.css";
 
 const LoginComponent = () => {
   const [loggedIn, setLoggedIn] = useState(false);
