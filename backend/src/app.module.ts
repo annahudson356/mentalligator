@@ -9,6 +9,7 @@ import { Log } from './entities/log.entity'
 import { LogController } from './controllers/log.controller';
 import { LogService } from './services/log.service';
 import { AuthModule } from './auth.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
@@ -24,6 +25,9 @@ import { AuthModule } from './auth.module';
     }),
     TypeOrmModule.forFeature([User, Log]),
     AuthModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+    })
   ],
   controllers: [AppController, UserController, LogController],
   providers: [AppService, UserService, LogService],
