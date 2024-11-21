@@ -3,7 +3,6 @@ import axios from "axios";
 import "./styles/LoginComponent.css";
 
 const LoginComponent = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
   const [name, setName] = useState("");
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
@@ -49,10 +48,10 @@ const LoginComponent = () => {
         email: email,
         password: password,
       });
-      console.log(res.data); // Handle the response data
+      console.log(res.data);
       setRegisterMessage(res.data.message);
     } catch (error) {
-      console.error(error); // Handle the error
+      console.error(error);
       if (error.response && error.response.data.error) {
         setRegisterMessage(error.response.data.error);
       } else {
@@ -74,16 +73,18 @@ const LoginComponent = () => {
     // Sample Log In Request http://localhost:3000/users/sign-in/johndoe@ufl.edu/password
     try {
       console.log("Logging in with email:", email, "and password:", password);
-      const res = await axios.get(`http://localhost:3000/users/sign-in/${email}/${password}`);
-      
-      console.log("Login response:", res);
-      setLoggedIn(true);
-      setLoginMessage(res.data.message); // Success message from server
+      const res = await axios.post('http://localhost:3000/auth/login', {
+  email,
+  password,
+});
+      const { accessToken } = res.data;
+      localStorage.setItem('token', accessToken);
+      setLoginMessage("Logged in!");
 
     } catch (error) {
       console.error("Login error:", error);
       if (error.response && error.response.data.error) {
-        setLoginMessage(error.response.data.error); // Error message from server
+        setLoginMessage(error.response.data.error);
       } else {
         setLoginMessage('Invalid email or password');
       }
