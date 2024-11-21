@@ -8,6 +8,7 @@ import { User } from './entities/user.entity';
 import { Log } from './entities/log.entity'
 import { LogController } from './controllers/log.controller';
 import { LogService } from './services/log.service';
+import { AuthModule } from './auth.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { LogService } from './services/log.service';
       synchronize: true,
     }),
     TypeOrmModule.forFeature([User, Log]),
+    AuthModule,
   ],
   controllers: [AppController, UserController, LogController],
   providers: [AppService, UserService, LogService],
