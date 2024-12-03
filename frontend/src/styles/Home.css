@@ -31,21 +31,21 @@
   
   .mission-title {
     font-family: Arial, sans-serif;
-    font-size: 3rem;
+    font-size: 5rem;
     font-weight: 700;
     background: linear-gradient(45deg, #8ec5fc, #e0c3fc);
     -webkit-background-clip: text;
     color: transparent;
     position: relative;
     display: inline-block;
-    transition: transform 10s ease, filter 10s ease;
+
     animation: emphasis 10s ease-in-out infinite;
   }
 
  
   @keyframes emphasis {
   0%, 100% {
-    filter: brightness(1);
+    filter: brightness(1.2);
     transform: scale(1);
   }
   50% {

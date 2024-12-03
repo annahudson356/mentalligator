@@ -1,25 +1,45 @@
-/* StatisticalAnalysis.css */
 .statistical-analysis {
-    text-align: center;
-    padding: 20px;
-  }
-  
+  text-align: center;
+  padding: 20px;
+  color: #333; 
+}
+
+.chart-container {
+  width: 90%; 
+  max-width: 800px; 
+  margin: 20px auto;
+  background: linear-gradient(145deg, #ffffff, #e3f2fd); 
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.chart-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.chart-container h3 {
+  margin-bottom: 15px;
+  color: #0277bd; 
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1); 
+}
+
+
+@media (max-width: 768px) {
   .chart-container {
-    width: 80%;
-    margin: 20px auto;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column; /* Arrange children vertically */
-    justify-content: center;
-    align-items: center;
+    width: 95%; 
+    padding: 15px;
   }
-  
   .chart-container h3 {
-    margin-bottom: 20px;
-    color: #444;
-    text-align: center; /* Center the text */
+    font-size: 1.5rem; 
   }
-  
+}
