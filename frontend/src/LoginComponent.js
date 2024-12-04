@@ -40,10 +40,9 @@ const LoginComponent = () => {
     }
 
     console.log("Registering with email:", email, "and password", password);
-    // Sample Register Post Request http://localhost:3000/users/create
 
     try {
-      const res = await axios.post("http://localhost:3000/users/create", {
+      const res = await axios.post("http://localhost:3000/auth/register", {
         name: name,
         email: email,
         password: password,
@@ -86,7 +85,7 @@ const LoginComponent = () => {
       if (error.response && error.response.data.error) {
         setLoginMessage(error.response.data.error);
       } else {
-        setLoginMessage('Invalid email or password');
+        setLoginMessage('Invalid/uncomfirmed email or password');
       }
     }
   };

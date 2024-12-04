@@ -3,6 +3,7 @@ import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import * as dotenv from 'dotenv';
 
+
 // Ensure dotenv is configured before accessing environment variables
 dotenv.config();
 

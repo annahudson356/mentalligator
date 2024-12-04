@@ -51,6 +51,13 @@ export class UserService {
         await this.userRepository.delete(id);
     }
 
+    async update(user: User): Promise<void> {
+        if (!await this.findOneByEmail(user.email)) {
+            throw new Error("User does not exist");
+        }
+        await this.userRepository.save(user);
+    }
+
     async validate(email: string, password: string): Promise<any> {
         const user = await this.findOneByEmail(email);
         if (user && await bcrypt.compare(password, user.password)) {
