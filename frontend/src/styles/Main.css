@@ -9,6 +9,32 @@ h1 {
     margin: 2rem auto;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
   }
+  /* InspirationalQuote.css */
+
+.quote-container {
+  background-color: #E6E6FA; /* Soft lavender background */
+  border: 2px solid #D8BFD8; /* Darker lavender border */
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  max-width: 80%; /* Ensure it doesn't stretch too wide */
+  margin: 20px auto; /* Centered horizontally */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.quote-text {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #4B0082; 
+  margin-bottom: 10px;
+}
+
+.quote-author {
+  font-size: 1.2rem;
+  color: #6A5ACD; 
+}
+
   
   
   
