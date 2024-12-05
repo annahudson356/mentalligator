@@ -34,12 +34,13 @@ const Main = () => {
       <MoodTracking />
       <ActivityLogging />
       <StatisticalAnalysis />
-    <div className="quote-container">
-    <p className="quote-text">{randomQuote.text}</p>
-    <p className="quote-author">{randomQuote.author}</p>
-    </div>
   </div>
   );
 };
 
 export default Main;
+
+/*<div className="quote-container">
+    <p className="quote-text">{randomQuote.text}</p>
+    <p className="quote-author">{randomQuote.author}</p>
+    </div>*/
